@@ -3,17 +3,18 @@ import styled from 'styled-components';
 export const BlurBackground = styled.section`
   height: 34rem;
   width: 100vw;
+  position: absolute;
+  left: 0;
   background-image: url('/src/assets/background.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
-  left: 0;
+  background-position: left;
 `;
 
 export const HeroContainer = styled.div`
   max-width: 74rem;
   margin: 0 auto;
-  padding: 10rem 2rem;
+  padding: 8rem 0rem;
   display: flex;
   gap: 3.5rem;
   align-items: center;
@@ -22,6 +23,7 @@ export const HeroContainer = styled.div`
   > div {
     strong {
       font-family: 'Baloo 2', cursive;
+      font-weight: 800;
       color: ${(props) => props.theme['base-title']};
       font-size: 3rem;
       line-height: 1.3;
