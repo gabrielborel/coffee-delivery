@@ -1,4 +1,4 @@
-import { HeaderContainer, Location, ShoppingCartButton } from './styles';
+import { CartItemsCounter, HeaderContainer, Location, ShoppingCartButton } from './styles';
 import logoSVG from '../../assets/logo.svg';
 import { MapPin, ShoppingCart } from 'phosphor-react';
 
@@ -15,6 +15,8 @@ export const Header = () => {
 
         <ShoppingCartButton>
           <ShoppingCart weight='fill' size={20} />
+
+          <CartItemsCounter>3</CartItemsCounter>
         </ShoppingCartButton>
       </div>
     </HeaderContainer>
