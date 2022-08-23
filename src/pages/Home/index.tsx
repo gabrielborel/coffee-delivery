@@ -1,3 +1,10 @@
+import { HomeContainer } from './styles';
+import { HeroBanner } from './components/HeroBanner';
+
 export const Home = () => {
-  return <h1>Home Page</h1>;
+  return (
+    <HomeContainer>
+      <HeroBanner />
+    </HomeContainer>
+  );
 };
