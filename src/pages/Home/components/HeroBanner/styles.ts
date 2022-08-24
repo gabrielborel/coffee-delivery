@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const BlurBackground = styled.section`
-  height: 34rem;
+  height: 36rem;
+  margin: 2rem 0;
   width: 100vw;
   position: absolute;
   left: 0;
@@ -9,12 +10,13 @@ export const BlurBackground = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
+  z-index: -1;
 `;
 
 export const HeroContainer = styled.div`
   max-width: 74rem;
   margin: 0 auto;
-  padding: 8rem 0rem;
+  padding: 6rem 0rem 6.775rem;
   display: flex;
   gap: 3.5rem;
   align-items: center;
@@ -82,6 +84,11 @@ export const HeroContainer = styled.div`
           }
         }
       }
+    }
+
+    img {
+      display: block;
+      z-index: 10;
     }
   }
 `;
