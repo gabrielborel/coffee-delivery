@@ -13,6 +13,16 @@ import latte from '../../../../assets/coffees/latte.svg';
 import macchiato from '../../../../assets/coffees/macchiato.svg';
 import mochaccino from '../../../../assets/coffees/mochaccino.svg';
 
+export interface ICoffee {
+  id: number;
+  image: string;
+  name: string;
+  labels: string[];
+  description: string;
+  price: number;
+  quantity: number;
+}
+
 export const CoffeesList = [
   {
     id: 1,
