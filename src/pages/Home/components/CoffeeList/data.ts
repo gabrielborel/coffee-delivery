@@ -26,7 +26,7 @@ export interface ICoffee {
 export const CoffeesList = [
   {
     id: 1,
-    image: americano,
+    image: expresso,
     name: 'Expresso Tradicional',
     labels: ['tradicional'],
     description: 'O tradicional café feito com água quente e grãos moídos',
@@ -53,7 +53,7 @@ export const CoffeesList = [
   },
   {
     id: 4,
-    image: expresso,
+    image: cafeGelado,
     name: 'Expresso Gelado',
     labels: ['tradicional', 'gelado'],
     description: 'Bebida preparada com café expresso e cubos de gelo',

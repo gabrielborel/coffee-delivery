@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 import { ICoffee } from '../pages/Home/components/CoffeeList/data';
 
 interface CartContextData {
@@ -16,3 +16,5 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
   return <CartContext.Provider value={{ cart }}>{children}</CartContext.Provider>;
 };
+
+const useCart = () => useContext(CartContext);
