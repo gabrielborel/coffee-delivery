@@ -1,9 +1,15 @@
 import { CurrencyDollar, MapPinLine, CreditCard, Money, Bank } from 'phosphor-react';
-import { AddressContainer, CheckoutFormContainer, Input, PaymentContainer } from './styles';
+import {
+  AddressContainer,
+  CheckoutFormSection,
+  Input,
+  PaymentContainer,
+  PaymentOption,
+} from './styles';
 
 export const CheckoutForm = () => {
   return (
-    <CheckoutFormContainer>
+    <CheckoutFormSection>
       <strong>Complete seu pedido</strong>
 
       <form>
@@ -44,30 +50,30 @@ export const CheckoutForm = () => {
           </header>
 
           <main>
-            <div>
+            <PaymentOption>
               <input type='radio' id='credit' name='payment' />
               <label htmlFor='credit'>
                 <CreditCard size={16} />
                 Cartao de Credito
               </label>
-            </div>
-            <div>
+            </PaymentOption>
+            <PaymentOption>
               <input type='radio' id='debit' name='payment' />
               <label htmlFor='debit'>
                 <Bank size={16} />
                 Cartao de Debito
               </label>
-            </div>
-            <div>
+            </PaymentOption>
+            <PaymentOption>
               <input type='radio' id='money' name='payment' />
               <label htmlFor='money'>
                 <Money size={16} />
                 Dinheiro
               </label>
-            </div>
+            </PaymentOption>
           </main>
         </PaymentContainer>
       </form>
-    </CheckoutFormContainer>
+    </CheckoutFormSection>
   );
 };

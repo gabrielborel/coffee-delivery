@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CheckoutFormContainer = styled.div`
+export const CheckoutFormSection = styled.div`
   width: 40rem;
 
   strong {
@@ -96,39 +96,39 @@ export const PaymentContainer = styled.div`
     margin-top: 2rem;
     display: flex;
     gap: 0.75rem;
+  }
+`;
 
-    div {
-      flex: 1;
+export const PaymentOption = styled.div`
+  flex: 1;
 
-      input {
-        appearance: none;
-        display: none;
-        width: 0;
-        height: 0;
+  input {
+    appearance: none;
+    display: none;
+    width: 0;
+    height: 0;
 
-        &:checked + label {
-          border-color: ${(props) => props.theme.purple};
-          background-color: ${(props) => props.theme['purple-light']};
-        }
-      }
+    &:checked + label {
+      border-color: ${(props) => props.theme.purple};
+      background-color: ${(props) => props.theme['purple-light']};
+    }
+  }
 
-      label {
-        cursor: pointer;
-        font-size: 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem;
-        background: ${(props) => props.theme['base-button']};
-        text-transform: uppercase;
-        border-radius: 6px;
-        border: 1px solid transparent;
-        transition: background-color 0.1s;
+  label {
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: ${(props) => props.theme['base-button']};
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: background-color 0.1s;
 
-        &:hover {
-          background: ${(props) => props.theme['base-hover']};
-        }
-      }
+    &:hover {
+      background: ${(props) => props.theme['base-hover']};
     }
   }
 `;
