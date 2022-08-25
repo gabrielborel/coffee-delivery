@@ -12,10 +12,3 @@ export const CheckoutForm = styled.form`
   flex-direction: column;
   gap: 1rem;
 `;
-
-export const Cart = styled.div`
-  width: 28rem;
-  background: ${(props) => props.theme['base-card']};
-  padding: 2.5rem;
-  border-radius: 6px;
-`;
