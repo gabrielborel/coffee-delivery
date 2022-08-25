@@ -2,8 +2,11 @@ import { CartItemsCounter, HeaderContainer, Location, ShoppingCartButton } from 
 import logoSVG from '../../assets/logo.svg';
 import { MapPin, ShoppingCart } from 'phosphor-react';
 import { NavLink } from 'react-router-dom';
+import { useCart } from '../../contexts/CartContext';
 
 export const Header = () => {
+  const { cartItemsLength } = useCart();
+
   return (
     <HeaderContainer>
       <NavLink to='/'>
@@ -20,7 +23,7 @@ export const Header = () => {
           <ShoppingCartButton>
             <ShoppingCart weight='fill' size={20} />
 
-            <CartItemsCounter>3</CartItemsCounter>
+            {!!cartItemsLength && <CartItemsCounter>{cartItemsLength}</CartItemsCounter>}
           </ShoppingCartButton>
         </NavLink>
       </div>

@@ -1,37 +1,24 @@
 import { CartContainer, CartItems, CartPrices } from './styles';
-import americano from '../../../../assets/coffees/americano.svg';
 import { Minus, Plus, Trash } from 'phosphor-react';
-
-const data = [
-  {
-    id: 1,
-    image: americano,
-    name: 'Expresso Tradicional',
-    labels: ['tradicional'],
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    price: 9.9,
-    quantity: 0,
-  },
-  {
-    id: 2,
-    image: americano,
-    name: 'Expresso Americano',
-    labels: ['tradicional'],
-    description: 'Expresso diluído, menos intenso que o tradicional',
-    price: 9.9,
-    quantity: 0,
-  },
-];
+import { useCart } from '../../../../contexts/CartContext';
 
 export const Cart = () => {
+  const {
+    cart,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+    cartValue,
+  } = useCart();
+
   return (
     <CartContainer>
       <strong>Cafes selecionados</strong>
 
       <div>
         <CartItems>
-          {data.map((coffee) => (
-            <div>
+          {cart.map((coffee) => (
+            <div key={coffee.id}>
               <img src={coffee.image} alt='' />
 
               <div>
@@ -39,12 +26,20 @@ export const Cart = () => {
 
                 <div>
                   <div>
-                    <Minus weight='bold' size={20} />
-                    <input type='number' defaultValue={1} />
-                    <Plus weight='bold' size={20} />
+                    <Minus
+                      weight='bold'
+                      size={20}
+                      onClick={() => decreaseCartQuantity(coffee)}
+                    />
+                    <input type='number' value={coffee.quantity} readOnly />
+                    <Plus
+                      weight='bold'
+                      size={20}
+                      onClick={() => increaseCartQuantity(coffee)}
+                    />
                   </div>
 
-                  <button>
+                  <button onClick={() => removeFromCart(coffee)}>
                     <Trash size={16} />
                     Remover
                   </button>
@@ -59,7 +54,7 @@ export const Cart = () => {
         <CartPrices>
           <div>
             <p>Total de itens</p>
-            <span>R$ 29,70</span>
+            <span>R$ {cartValue}</span>
           </div>
 
           <div>
@@ -69,7 +64,7 @@ export const Cart = () => {
 
           <div>
             <strong>Total</strong>
-            <strong>R$ 33,20</strong>
+            <strong>R$ {(Number(cartValue) + 3.5).toFixed(2)}</strong>
           </div>
         </CartPrices>
 

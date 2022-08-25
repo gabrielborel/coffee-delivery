@@ -2,20 +2,33 @@ import { CoffeeCardContainer } from './styles';
 
 import { ICoffee } from '../data';
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
+import { useState } from 'react';
+import { useCart } from '../../../../../contexts/CartContext';
 
 interface CoffeeCardProps {
   coffee: ICoffee;
 }
 
 export const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
+  const [coffeeQuantity, setCoffeQuantity] = useState(1);
+  const { addToCart } = useCart();
+
+  const increaseCoffeeQuantity = () => setCoffeQuantity((state) => state + 1);
+  const decreaseCoffeeQuantity = () => setCoffeQuantity((state) => state - 1);
+
+  const handleAddToCart = () => {
+    coffee.quantity = coffeeQuantity;
+    addToCart(coffee);
+  };
+
   return (
     <CoffeeCardContainer>
       <header>
         <img src={coffee.image} alt='' />
 
         <div>
-          {coffee.labels.map((label) => (
-            <span>{label}</span>
+          {coffee.labels.map((label, id) => (
+            <span key={id}>{label}</span>
           ))}
         </div>
       </header>
@@ -32,12 +45,16 @@ export const CoffeeCard = ({ coffee }: CoffeeCardProps) => {
 
         <div>
           <div>
-            <Minus weight='bold' size={20} />
-            <input type='number' defaultValue={1} />
-            <Plus weight='bold' size={20} />
+            <Minus weight='bold' size={20} onClick={decreaseCoffeeQuantity} />
+            <input
+              type='number'
+              value={coffeeQuantity}
+              onChange={(e) => setCoffeQuantity(Number(e.target.value))}
+            />
+            <Plus weight='bold' size={20} onClick={increaseCoffeeQuantity} />
           </div>
 
-          <button>
+          <button onClick={handleAddToCart}>
             <ShoppingCart size={20} weight='fill' />
           </button>
         </div>

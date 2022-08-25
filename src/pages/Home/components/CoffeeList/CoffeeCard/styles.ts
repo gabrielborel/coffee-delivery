@@ -83,7 +83,7 @@ export const CoffeeCardContainer = styled.div`
         align-items: center;
         gap: 0.25rem;
         border-radius: 6px;
-        padding: 0.5rem;
+        padding: 0.5rem 0.25rem;
         width: 4rem;
         background: ${(props) => props.theme['base-button']};
 
