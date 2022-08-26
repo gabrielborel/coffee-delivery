@@ -1,4 +1,9 @@
-import { CartContainer, CartItems, CartPrices } from './styles';
+import {
+  CartContainer,
+  CartItems,
+  CartPrices,
+  SubmitCartButton,
+} from './styles';
 import { Minus, Plus, Trash } from 'phosphor-react';
 import { useCart } from '../../../../contexts/CartContext';
 
@@ -68,7 +73,13 @@ export const Cart = () => {
           </div>
         </CartPrices>
 
-        <button>confirmar pedido</button>
+        <SubmitCartButton
+          disabled={cart.length === 0}
+          type='submit'
+          form='checkout-form'
+        >
+          confirmar pedido
+        </SubmitCartButton>
       </div>
     </CartContainer>
   );

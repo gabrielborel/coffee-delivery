@@ -1,8 +1,11 @@
 import { Location, Payment, SuccessContainer, Time } from './styles';
 import motobikeMan from '../../assets/illustration.svg';
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react';
+import { useCart } from '../../contexts/CartContext';
 
 export const Success = () => {
+  const { checkoutData } = useCart();
+
   return (
     <SuccessContainer>
       <strong>Uhu! Pedido confirmado</strong>
@@ -14,9 +17,15 @@ export const Success = () => {
             <MapPin weight='fill' size={16} />
             <div>
               <p>
-                Entrega em <span>Rua João Daniel Martinelli, 102</span>
+                Entrega em{' '}
+                <span>
+                  {checkoutData.street}, {checkoutData.number}
+                </span>
               </p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>
+                {checkoutData.neighborhood} - {checkoutData.city},{' '}
+                {checkoutData.state}
+              </p>
             </div>
           </Location>
 
@@ -32,7 +41,7 @@ export const Success = () => {
             <CurrencyDollar weight='fill' size={16} />
             <div>
               <p>Pagamento na entrega</p>
-              <span>Cartão de Crédito</span>
+              <span>{checkoutData.paymentOption}</span>
             </div>
           </Payment>
         </div>

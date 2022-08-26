@@ -14,24 +14,6 @@ export const CartContainer = styled.div`
     background: ${(props) => props.theme['base-card']};
     padding: 2.5rem 2.5rem 2rem;
     border-radius: 6px 36px;
-
-    button {
-      cursor: pointer;
-      border: 0;
-      width: 100%;
-      padding: 0.8rem;
-      color: ${(props) => props.theme.white};
-      text-transform: uppercase;
-      font-size: 0.875rem;
-      font-weight: bold;
-      border-radius: 6px;
-      background-color: ${(props) => props.theme.yellow};
-      transition: background-color 0.1s;
-
-      &:hover {
-        background-color: ${(props) => props.theme['yellow-dark']};
-      }
-    }
   }
 `;
 
@@ -144,5 +126,24 @@ export const CartPrices = styled.div`
     strong {
       font-family: 'Roboto', sans-serif;
     }
+  }
+`;
+
+export const SubmitCartButton = styled.button`
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+  border: 0;
+  width: 100%;
+  padding: 0.8rem;
+  color: ${(props) => props.theme.white};
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: ${(props) => props.theme.yellow};
+  transition: background-color 0.1s;
+
+  &:hover:not(:disabled) {
+    background-color: ${(props) => props.theme['yellow-dark']};
   }
 `;
